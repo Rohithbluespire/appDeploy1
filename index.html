@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CALC by rohith</title>
+    </head>
+    <style>
+        body{
+            background-color: sandybrown;
+        }
+        .container1{
+            border: 2px solid;
+            width: 500px;
+            height: 400px; 
+            margin: auto;
+            padding: 10px;
+            font-size: 30px;
+            background-color: aqua;
+        }
+        .head{
+            text-align: center;
+            text-decoration: underline;
+            color: darkred;
+            font-size: 40px;
+            font-weight: bolder;
+            
+        }
+        .calc{
+            list-style-type: none;
+        }
+        input{
+            font-size: 20px;
+        }
+        .html{
+            font-size: 10px; 
+        }
+        li{
+            padding: 5px;
+        }
+    </style>
+    <body>
+        <div class="head"> Caluclator </div>
+        <div class="container1"> 
+            <ul class="calc"> 
+                <li>
+                    <label> Value 1:</label>
+                    <input type="text"  id="val1">
+                </li>
+                <li>
+                    <label> Value 2:</label>
+                    <input type="text" id ="val2">
+                </li>
+                <li>
+                    <input type="radio" class="html" name="fav_language" value="ADD">
+                    <label for="html"> ADD</label>
+                </li>
+                <li>
+                    <input type="radio" class="html" name="fav_language" value="SUB">
+                    <label for="html"> SUB </label>
+                </li>
+                <li>
+                    <input type="radio" class="html" name="fav_language" value="MULTIPLY">
+                    <label for="html"> MULTIPLY </label>
+                </li>
+                <li>
+                    <input type="radio" class="html" name="fav_language" value="DIV">
+                    <label for="html"> DIV </label>
+                </li>
+                <li>
+                    <input type="button" value=" Enter " onclick="Caluclate()">
+                </li>
+                <li>
+                    The Answer is : <span id="answer">  </span>
+                </li>
+                
+            </ul>
+        </div>
+    </body>
+    <script>
+
+        var Caluclate = () => {
+            var value1 = document.querySelector("#val1").value 
+            value1 = parseInt(value1)
+            console.log(value1);
+
+            var value2 = document.querySelector("#val2").value
+            value2 = parseInt(value2)
+            console.log(value2);
+
+            var value3 = document.querySelector("input[type=radio][name=fav_language]:checked").value
+            console.log(value3);
+
+           if(value3 == "ADD" ){
+                var ans = value1 + value2;
+                document.querySelector("#answer").innerHTML = ans;
+           }else if (value3 == "SUB") {
+                var ans = value1 - value2;
+                document.querySelector("#answer").innerHTML = ans;
+           }else if (value3 == "MULTIPLY") {
+                var ans = value1 * value2;
+                document.querySelector("#answer").innerHTML = ans;
+           }else if (value3 == "DIV") {
+                var ans = value1 / value2;
+                document.querySelector("#answer").innerHTML = ans;
+           }else{
+            prompt("Value not entered")
+           }
+
+        }
+
+    </script>
+</html>
